@@ -49,20 +49,6 @@ jobs:
         sudo apt-get install -y xvfb fonts-noto-color-emoji fonts-freefont-ttf fonts-unifont \
           fonts-ipafont-gothic fonts-wqy-zenhei fonts-tlwg-loma-otf
 
-    - name: 缓存 CloakBrowser 二进制
-      uses: actions/cache@v5
-      id: cloakbrowser-cache
-      with:
-        path: ~/.cloakbrowser
-        key: ${{ runner.os }}-cloakbrowser-v1
-        restore-keys: |
-          ${{ runner.os }}-cloakbrowser-
-
-    - name: 安装 CloakBrowser
-      run: |
-        uv run python -m cloakbrowser install
-        echo "✅ CloakBrowser 安装完成"
-
     - name: 恢复余额历史缓存
       uses: actions/cache@v5
       with:
